@@ -1,0 +1,56 @@
+//typography and general classes
+
+$colors: (
+  primary: #5ec576,
+  secondary: #ffcb03,
+  tertiary: #ff585f,
+  primary-darker: #4bbb7d,
+  secondary-darker: #ffbb00,
+  tertiary-darker: #fd424b,
+  primary-opacity: #5ec5763a,
+  secondary-opacity: #ffcd0331,
+  tertiary-opacity: #ff58602d,
+  bg-body: #f3f3f3,
+  text-body: #444,
+);
+
+$gradients: (
+  primary: linear-gradient(to top left, #39b385, #9be15d),
+  secondary: linear-gradient(to top left, #ffb003, #ffcb03),
+);
+
+@mixin media-min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: map-get($colors, text-body);
+  line-height: 1.9;
+  background-color: map-get($colors, bg-body);
+}
+
+.section {
+  max-width: 80rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid--1x2 {
+  grid-template-columns: repeat(2, 1fr);
+}

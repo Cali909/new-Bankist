@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3; }
+
+.section {
+  max-width: 80rem; }
+
+.grid {
+  display: grid; }
+
+.grid--1x2 {
+  grid-template-columns: repeat(2, 1fr); }
+
+/*# sourceMappingURL=index.css.map */
