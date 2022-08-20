@@ -8,11 +8,4 @@ const handleNavToggle = () => {
   navTogglerButton.classList.toggle('expanded');
 };
 
-const handleNavLinksHover = e => {
-  // if(e.target)
-  e.target.classList.add('highlight');
-};
-
 navTogglerButton.addEventListener('click', handleNavToggle);
-
-navLinks.addEventListener('mouseover', handleNavLinksHover);

@@ -20,9 +20,7 @@ $gradients: (
 );
 
 $break-points: (
-  navigation: 660px,
   tablet: 768px,
-  desktop: 1080px,
 );
 @mixin media-min-width($width) {
   @media (min-width: $width) {
@@ -71,7 +69,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 4rem;
+  padding: 1rem 4rem 0;
   background-color: rgba(255, 255, 255, 0.95);
   @include media-min-width(map-get($break-points, tablet)) {
     flex-wrap: nowrap;
@@ -80,7 +78,6 @@ body {
 }
 
 //TODO:  max-width for header after nav and section
-//FIXME: transition for height
 
 .nav__logo {
   height: 4.5rem;
@@ -95,7 +92,7 @@ body {
   width: 3.5rem;
   cursor: pointer;
   border-radius: 5px;
-  transition: fill 0.3s;
+  transition: fill 0.5s;
   &.expanded {
     fill: map-get($map: $colors, $key: primary);
   }
@@ -106,12 +103,12 @@ body {
 
 .nav__links {
   width: 100%;
-  opacity: 0;
-  height: 0;
   margin-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
   &.expanded {
-    opacity: 1;
-    height: auto;
+    max-height: 70vh;
   }
   @include media-min-width(map-get($break-points, tablet)) {
     display: flex;
@@ -120,11 +117,12 @@ body {
     width: inherit;
     margin-top: 0;
     opacity: 1;
+    max-height: 100%;
   }
 }
 
 .nav__item {
-  margin-left: 3.5rem;
+  margin-left: 1rem;
   margin-bottom: 0.6rem;
   border-bottom: 1px solid #ccc;
   white-space: nowrap;
@@ -132,7 +130,8 @@ body {
   @include media-min-width(map-get($break-points, tablet)) {
     border-bottom: none;
     margin-bottom: 0;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+    margin-left: 2rem;
   }
 }
 
