@@ -24,6 +24,25 @@ body {
 .grid--1x2 {
   grid-template-columns: repeat(2, 1fr); }
 
+.btn {
+  display: inline-block;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10rem;
+  cursor: pointer; }
+  @media (min-width: 768px) {
+    .btn {
+      font-size: 1.6rem;
+      padding: 0.75rem 1.75rem; } }
+
+.btn--primary {
+  background-color: #5ec576; }
+  .btn--primary:hover {
+    background-color: #4bbb7d;
+    transform: scale(0.9); }
+
 .nav {
   max-width: 100vw;
   display: flex;
@@ -83,13 +102,17 @@ body {
     .nav__item {
       border-bottom: none;
       margin-bottom: 0;
-      font-size: 1.8rem;
-      margin-left: 2rem; } }
+      font-size: 1.7rem;
+      margin-left: 2.5rem; } }
 
 .nav__link {
   color: #444;
-  transition: color 0.2s; }
+  transition: color 0.35s; }
+  .nav__link.btn--primary {
+    transition: all 0.35s; }
+  .nav__link.btn--primary:hover {
+    color: #fff; }
   .nav__link:hover {
-    color: #44bc60; }
+    color: #41b45c; }
 
 /*# sourceMappingURL=index.css.map */
