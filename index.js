@@ -7,7 +7,7 @@ const closeModalBtn = document.querySelector('.btn--close-modal');
 const navTogglerButton = document.getElementById('Capa_1');
 const navLinks = document.querySelector('.nav__links');
 const ctaBtns = document.querySelectorAll('#btn--cta');
-// const navBarContainer = document.querySelector('.nav');
+const navBarContainer = document.querySelector('.nav');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -25,12 +25,19 @@ const handleNavToggle = () => {
   navTogglerButton.classList.toggle('expanded');
 };
 
-// const handleHover = e => {
-//   if (e.target.classList.contains('nav__link')) {
-//     navBarContainer.style.opacity = 0.8;
-//     e.target.style.opacity = 1;
-//   }
-// };
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el => {
+      if (el !== link) {
+        el.style.opacity = this;
+      }
+    });
+    logo.style.opacity = this;
+  }
+};
 
 //EVENTLISTENERS
 ctaBtns.forEach(btn => btn.addEventListener('click', handleShowModal));
@@ -44,4 +51,5 @@ document.addEventListener('keydown', function (e) {
 
 navTogglerButton.addEventListener('click', handleNavToggle);
 
-// navBarContainer.addEventListener('mouseover', handleHover);
+navBarContainer.addEventListener('mouseover', handleHover.bind(0.5));
+navBarContainer.addEventListener('mouseout', handleHover.bind(1));

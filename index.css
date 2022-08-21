@@ -15,9 +15,6 @@ body {
   line-height: 1.9;
   background-color: #f3f3f3; }
 
-.section {
-  max-width: 80rem; }
-
 .grid, .grid--1x2 {
   display: grid; }
 
@@ -185,9 +182,5 @@ body {
   transition: color 0.35s; }
   .nav__link.btn--primary {
     transition: all 0.35s; }
-  .nav__link.btn--primary:hover {
-    color: #fff; }
-  .nav__link:hover {
-    color: #41b45c; }
 
 /*# sourceMappingURL=index.css.map */

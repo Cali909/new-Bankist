@@ -49,9 +49,9 @@ body {
   // position: relative;
 }
 
-.section {
-  max-width: 80rem;
-}
+// .section {
+//   max-width: 80rem;
+// }
 
 .grid {
   display: grid;
@@ -186,7 +186,6 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
   @include media-min-width(map-get($break-points, tablet)) {
     flex-wrap: nowrap;
-    // padding: 1rem 4rem;
   }
 }
 
@@ -252,11 +251,5 @@ body {
   transition: color 0.35s;
   &.btn--primary {
     transition: all 0.35s;
-  }
-  &.btn--primary:hover {
-    color: #fff;
-  }
-  &:hover {
-    color: darken(map-get($map: $colors, $key: primary), 9%);
   }
 }
