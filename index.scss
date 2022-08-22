@@ -221,10 +221,10 @@ body {
   transition: max-height 0.5s;
   &.expanded {
     max-height: 100vh;
-  }
-  :last-child {
-    margin-bottom: 0.8rem;
-    margin-left: 0;
+    :last-child {
+      margin-bottom: 0.8rem;
+      margin-left: 0;
+    }
   }
   @include media-min-width(map-get($break-points, tablet)) {
     display: flex;

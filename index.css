@@ -155,9 +155,9 @@ body {
   transition: max-height 0.5s; }
   .nav__links.expanded {
     max-height: 100vh; }
-  .nav__links :last-child {
-    margin-bottom: 0.8rem;
-    margin-left: 0; }
+    .nav__links.expanded :last-child {
+      margin-bottom: 0.8rem;
+      margin-left: 0; }
   @media (min-width: 768px) {
     .nav__links {
       display: flex;
