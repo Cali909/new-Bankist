@@ -46,7 +46,15 @@ body {
   color: map-get($colors, text-body);
   line-height: 1.9;
   background-color: map-get($colors, bg-body);
-  // position: relative;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.container {
+  max-width: 115rem;
+  margin: 0 auto;
 }
 
 // .section {
@@ -55,11 +63,13 @@ body {
 
 .grid {
   display: grid;
+  @include media-min-width(map-get($break-points, tablet)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.grid--1x2 {
-  @extend .grid;
-  grid-template-columns: repeat(2, 1fr);
+img {
+  width: 100%;
 }
 
 .btn {
@@ -142,8 +152,13 @@ body {
   input {
     font-size: 1.7rem;
     padding: 1rem 1.5rem;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.2s;
+    &:focus {
+      border-color: map-get($map: $colors, $key: primary);
+    }
   }
   button {
     grid-column: 1 / span 2;
@@ -188,8 +203,6 @@ body {
     flex-wrap: nowrap;
   }
 }
-
-//TODO:  max-width for header after nav and section
 
 .nav__logo {
   height: 4.5rem;
@@ -255,5 +268,51 @@ body {
   transition: color 0.35s;
   &.btn--primary {
     transition: all 0.35s;
+  }
+}
+
+//hero
+.hero {
+  text-align: center;
+  align-items: center;
+  padding: 5rem 0.5rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    text-align: left;
+  }
+}
+
+.hero__description {
+  padding: 2rem;
+}
+
+.hero__header {
+  line-height: 1.4;
+  font-size: 3rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 4.5rem;
+  }
+}
+
+.hero__text {
+  font-size: 1.9rem;
+  padding: 1.9rem 0;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2.25rem;
+  }
+}
+
+.hero__link {
+  font-size: 1.7rem;
+  color: map-get($map: $colors, $key: primary-darker);
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 1.9rem;
+  }
+}
+
+.hero__image {
+  order: -1;
+  @include media-min-width(map-get($break-points, tablet)) {
+    display: block;
+    order: 1;
   }
 }

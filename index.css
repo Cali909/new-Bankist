@@ -15,11 +15,21 @@ body {
   line-height: 1.9;
   background-color: #f3f3f3; }
 
-.grid, .grid--1x2 {
-  display: grid; }
+h1 {
+  font-size: 4rem; }
 
-.grid--1x2 {
-  grid-template-columns: repeat(2, 1fr); }
+.container {
+  max-width: 115rem;
+  margin: 0 auto; }
+
+.grid {
+  display: grid; }
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr); } }
+
+img {
+  width: 100%; }
 
 .btn {
   display: inline-block;
@@ -90,8 +100,12 @@ body {
   .modal__form input {
     font-size: 1.7rem;
     padding: 1rem 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem; }
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.2s; }
+    .modal__form input:focus {
+      border-color: #5ec576; }
   .modal__form button {
     grid-column: 1 / span 2;
     justify-self: center;
@@ -185,5 +199,44 @@ body {
   transition: color 0.35s; }
   .nav__link.btn--primary {
     transition: all 0.35s; }
+
+.hero {
+  text-align: center;
+  align-items: center;
+  padding: 5rem 0.5rem; }
+  @media (min-width: 768px) {
+    .hero {
+      text-align: left; } }
+
+.hero__description {
+  padding: 2rem; }
+
+.hero__header {
+  line-height: 1.4;
+  font-size: 3rem; }
+  @media (min-width: 768px) {
+    .hero__header {
+      font-size: 4.5rem; } }
+
+.hero__text {
+  font-size: 1.9rem;
+  padding: 1.9rem 0; }
+  @media (min-width: 768px) {
+    .hero__text {
+      font-size: 2.25rem; } }
+
+.hero__link {
+  font-size: 1.7rem;
+  color: #4bbb7d; }
+  @media (min-width: 768px) {
+    .hero__link {
+      font-size: 1.9rem; } }
+
+.hero__image {
+  order: -1; }
+  @media (min-width: 768px) {
+    .hero__image {
+      display: block;
+      order: 1; } }
 
 /*# sourceMappingURL=index.css.map */
