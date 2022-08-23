@@ -44,7 +44,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   color: map-get($colors, text-body);
-  line-height: 1.9;
+  line-height: 1.5;
   background-color: map-get($colors, bg-body);
 }
 
@@ -54,17 +54,40 @@ h1 {
 
 .container {
   max-width: 115rem;
-  margin: 0 auto;
+  margin: 7.5rem auto;
+  padding: 0 2.5rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    margin: 20rem auto;
+  }
 }
 
-// .section {
-//   max-width: 80rem;
-// }
+.container__label {
+  color: map-get($map: $colors, $key: primary);
+  font-size: 2rem;
+  text-align: left;
+  font-weight: 500;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2.5rem;
+  }
+}
+
+.container__header {
+  font-size: 2.5rem;
+  text-align: left;
+  margin-top: 0.75rem;
+  margin-bottom: 3rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    margin-bottom: 4.5rem;
+  }
+}
 
 .grid {
   display: grid;
   @include media-min-width(map-get($break-points, tablet)) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
   }
 }
 
@@ -232,12 +255,12 @@ img {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
+  :last-child > a {
+    margin-bottom: 0.8rem;
+    margin-left: -1rem;
+  }
   &.expanded {
     max-height: 100vh;
-    :last-child {
-      margin-bottom: 0.8rem;
-      margin-left: 0;
-    }
   }
   @include media-min-width(map-get($break-points, tablet)) {
     display: flex;
@@ -246,6 +269,10 @@ img {
     width: inherit;
     margin-top: 0;
     max-height: 100%;
+    :last-child > a {
+      margin-bottom: 0;
+      margin-left: 1.25rem;
+    }
   }
 }
 
@@ -259,7 +286,7 @@ img {
     border-bottom: none;
     margin-bottom: 0;
     font-size: 1.8rem;
-    margin-left: 3rem;
+    margin: 0 1.25rem;
   }
 }
 
@@ -275,14 +302,14 @@ img {
 .hero {
   text-align: center;
   align-items: center;
-  padding: 5rem 0.5rem;
+  margin-top: 5rem;
   @include media-min-width(map-get($break-points, tablet)) {
     text-align: left;
   }
 }
 
 .hero__description {
-  padding: 2rem;
+  margin: 2rem auto;
 }
 
 .hero__header {
@@ -314,5 +341,80 @@ img {
   @include media-min-width(map-get($break-points, tablet)) {
     display: block;
     order: 1;
+  }
+}
+
+//features
+
+.features {
+  align-items: center;
+  justify-items: center;
+  @include media-min-width(map-get($break-points, tablet)) {
+    & > #feature__img1 {
+      order: 1;
+    }
+    & > #feature__cnt1 {
+      order: 2;
+    }
+    & > #feature__img2 {
+      order: 4;
+    }
+    & > #feature__cnt2 {
+      order: 3;
+    }
+    & > #feature__img3 {
+      order: 5;
+    }
+    & > #feature__cnt3 {
+      order: 6;
+    }
+  }
+  .container__header {
+    margin-bottom: 0;
+  }
+  @include media-min-width(map-get($break-points, tablet)) {
+    .container__header {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.feature__image {
+  margin-top: 5rem;
+}
+
+.feature__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: map-get($map: $colors, $key: primary-opacity);
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  & > svg {
+    width: 22.5px;
+    height: 22.5px;
+    fill: map-get($map: $colors, $key: primary);
+  }
+  @include media-min-width(map-get($break-points, tablet)) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.feature__content__header {
+  font-size: 1.9rem;
+  margin: 1rem auto;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2.2rem;
+  }
+}
+
+.feature__content__description {
+  font-size: 1.7rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2rem;
   }
 }
