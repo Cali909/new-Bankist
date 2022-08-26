@@ -8,6 +8,8 @@ const navTogglerButton = document.getElementById('Capa_1');
 const navLinks = document.querySelector('.nav__links');
 const ctaBtns = document.querySelectorAll('#btn--cta');
 const navBarContainer = document.querySelector('.nav');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -37,6 +39,23 @@ const handleHover = function (e) {
   }
 };
 
+const handleScrollToSection1 = e => {
+  e.preventDefault();
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
+};
+
+const handleSmoothScrolling = e => {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+};
+
 //EVENTLISTENERS
 ctaBtns.forEach(btn => btn.addEventListener('click', handleShowModal));
 overlayEl.addEventListener('click', handleCloseModal);
@@ -51,3 +70,7 @@ navTogglerButton.addEventListener('click', handleNavToggle);
 
 navBarContainer.addEventListener('mouseover', handleHover.bind(0.5));
 navBarContainer.addEventListener('mouseout', handleHover.bind(1));
+
+btnScrollTo.addEventListener('click', handleScrollToSection1);
+
+navBarContainer.addEventListener('click', handleSmoothScrolling);

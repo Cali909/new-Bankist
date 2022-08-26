@@ -48,6 +48,10 @@ body {
   background-color: map-get($colors, bg-body);
 }
 
+a {
+  cursor: pointer;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -57,7 +61,7 @@ h1 {
   margin: 7.5rem auto;
   padding: 0 2.5rem;
   @include media-min-width(map-get($break-points, tablet)) {
-    margin: 20rem auto;
+    margin: 25rem auto;
   }
 }
 
@@ -80,6 +84,21 @@ h1 {
     font-size: 3.5rem;
     margin-top: 1rem;
     margin-bottom: 4.5rem;
+  }
+}
+
+.section__header {
+  font-size: 1.9rem;
+  margin: 1rem auto;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2.2rem;
+  }
+}
+
+.section__description {
+  font-size: 1.7rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 2rem;
   }
 }
 
@@ -171,12 +190,15 @@ img {
     display: block;
     font-size: 1.7rem;
     font-weight: 500;
+    margin-bottom: 0.5rem;
   }
   input {
     font-size: 1.7rem;
     padding: 1rem 1.5rem;
     border: 2px solid #ddd;
     border-radius: 0.5rem;
+    margin-bottom: 2rem;
+
     outline: none;
     transition: all 0.2s;
     &:focus {
@@ -220,7 +242,7 @@ img {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 4rem 0;
+  padding: 1rem 4rem 1rem;
   background-color: rgba(255, 255, 255, 0.95);
   @include media-min-width(map-get($break-points, tablet)) {
     flex-wrap: nowrap;
@@ -404,17 +426,17 @@ img {
   }
 }
 
-.feature__content__header {
-  font-size: 1.9rem;
-  margin: 1rem auto;
-  @include media-min-width(map-get($break-points, tablet)) {
-    font-size: 2.2rem;
-  }
-}
+// .feature__content__header {
+//   font-size: 1.9rem;
+//   margin: 1rem auto;
+//   @include media-min-width(map-get($break-points, tablet)) {
+//     font-size: 2.2rem;
+//   }
+// }
 
-.feature__content__description {
-  font-size: 1.7rem;
-  @include media-min-width(map-get($break-points, tablet)) {
-    font-size: 2rem;
-  }
-}
+// .feature__content__description {
+//   font-size: 1.7rem;
+//   @include media-min-width(map-get($break-points, tablet)) {
+//     font-size: 2rem;
+//   }
+// }
