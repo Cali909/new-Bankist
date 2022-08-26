@@ -24,7 +24,8 @@ h1 {
 .container {
   max-width: 115rem;
   margin: 7.5rem auto;
-  padding: 0 2.5rem; }
+  padding: 0 2.5rem;
+  transition: all 1s; }
   @media (min-width: 768px) {
     .container {
       margin: 25rem auto; } }
@@ -62,6 +63,10 @@ h1 {
     .section__description {
       font-size: 2rem; } }
 
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem); }
+
 .grid {
   display: grid; }
   @media (min-width: 768px) {
@@ -70,7 +75,12 @@ h1 {
       gap: 5rem; } }
 
 img {
-  width: 100%; }
+  width: 100%;
+  transition: filter 0.5s; }
+
+.img--lazy {
+  transform: scale(2.25);
+  filter: blur(15px); }
 
 .btn {
   display: inline-block;
@@ -214,7 +224,7 @@ img {
     margin-bottom: 0.8rem;
     margin-left: -1rem; }
   .nav__links.expanded {
-    max-height: 100vh; }
+    max-height: 40vh; }
   @media (min-width: 768px) {
     .nav__links {
       display: flex;

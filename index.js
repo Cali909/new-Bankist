@@ -10,6 +10,7 @@ const ctaBtns = document.querySelectorAll('#btn--cta');
 const navBarContainer = document.querySelector('.nav');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const featuresImgs = document.querySelectorAll('img[data-src]');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -56,6 +57,16 @@ const handleSmoothScrolling = e => {
   }
 };
 
+const handleLoadImg = (entries, observer) => {
+  const [entry] = entries;
+  const targetImg = entry.target;
+  if (!entry.isIntersecting) return;
+  targetImg.src = targetImg.dataset.src;
+  targetImg.addEventListener('load', function () {
+    targetImg.classList.remove('img--lazy');
+  });
+  observer.unobserve(targetImg);
+};
 //EVENTLISTENERS
 ctaBtns.forEach(btn => btn.addEventListener('click', handleShowModal));
 overlayEl.addEventListener('click', handleCloseModal);
@@ -74,3 +85,12 @@ navBarContainer.addEventListener('mouseout', handleHover.bind(1));
 btnScrollTo.addEventListener('click', handleScrollToSection1);
 
 navBarContainer.addEventListener('click', handleSmoothScrolling);
+
+//OBSERVERS
+const imgObserver = new IntersectionObserver(handleLoadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+featuresImgs.forEach(img => imgObserver.observe(img));
