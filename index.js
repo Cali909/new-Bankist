@@ -11,6 +11,7 @@ const navBarContainer = document.querySelector('.nav');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 const featuresImgs = document.querySelectorAll('img[data-src]');
+const sections = document.querySelectorAll('.section');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -67,6 +68,14 @@ const handleLoadImg = (entries, observer) => {
   });
   observer.unobserve(targetImg);
 };
+
+const handleRevealSection = (entries, observer) => {
+  const [entry] = entries;
+  const targetSection = entry.target;
+  if (!entry.isIntersecting) return;
+  targetSection.classList.remove('section--hidden');
+  observer.unobserve(targetSection);
+};
 //EVENTLISTENERS
 ctaBtns.forEach(btn => btn.addEventListener('click', handleShowModal));
 overlayEl.addEventListener('click', handleCloseModal);
@@ -92,5 +101,13 @@ const imgObserver = new IntersectionObserver(handleLoadImg, {
   threshold: 0,
   rootMargin: '200px',
 });
-
 featuresImgs.forEach(img => imgObserver.observe(img));
+
+const sectionObserver = new IntersectionObserver(handleRevealSection, {
+  root: null,
+  threshold: 0.15,
+});
+sections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});

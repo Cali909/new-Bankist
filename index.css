@@ -21,13 +21,15 @@ a {
 h1 {
   font-size: 4rem; }
 
-.container {
+.section {
+  transition: all 1.2s; }
+
+.container, .section {
   max-width: 115rem;
   margin: 7.5rem auto;
-  padding: 0 2.5rem;
-  transition: all 1s; }
+  padding: 0 2.5rem; }
   @media (min-width: 768px) {
-    .container {
+    .container, .section {
       margin: 25rem auto; } }
 
 .container__label {

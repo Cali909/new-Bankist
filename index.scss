@@ -56,11 +56,15 @@ h1 {
   font-size: 4rem;
 }
 
+.section {
+  @extend .container;
+  transition: all 1.2s;
+}
+
 .container {
   max-width: 115rem;
   margin: 7.5rem auto;
   padding: 0 2.5rem;
-  transition: all 1s;
   @include media-min-width(map-get($break-points, tablet)) {
     margin: 25rem auto;
   }
