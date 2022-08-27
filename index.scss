@@ -28,6 +28,10 @@ $break-points: (
   }
 }
 
+::selection {
+  background-color: skyblue;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -263,13 +267,18 @@ img {
   opacity: 0;
 }
 
+//navigation bar
 .nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   max-width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 4rem 1rem;
+  padding: 1rem 4rem;
   background-color: rgba(255, 255, 255, 0.95);
   @include media-min-width(map-get($break-points, tablet)) {
     flex-wrap: nowrap;
@@ -351,7 +360,7 @@ img {
 .hero {
   text-align: center;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 10rem;
   @include media-min-width(map-get($break-points, tablet)) {
     text-align: left;
   }
@@ -491,3 +500,5 @@ img {
 .operation__content--active {
   visibility: visible;
 }
+
+//testimonials
