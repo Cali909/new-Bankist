@@ -12,6 +12,10 @@ const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 const featuresImgs = document.querySelectorAll('img[data-src]');
 const sections = document.querySelectorAll('.section');
+const operationTabsContainer = document.querySelector(
+  '.operations__tabs-container'
+);
+const operationsContent = document.querySelectorAll('.operation__content');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -76,6 +80,24 @@ const handleRevealSection = (entries, observer) => {
   targetSection.classList.remove('section--hidden');
   observer.unobserve(targetSection);
 };
+
+const handleShowTab = e => {
+  const tab = e.target.closest('.operation__tab');
+  if (!tab) return;
+  const tabs = tab
+    .closest('.operations__tabs-container')
+    .querySelectorAll('.operation__tab');
+  tabs.forEach(tab => tab.classList.remove('operation__tab--active'));
+  operationsContent.forEach(content =>
+    content.classList.remove('operation__content--active')
+  );
+  tab.classList.add('operation__tab--active');
+  const content = document.querySelector(
+    `.operation__content--${tab.dataset.tab}`
+  );
+  content.classList.add('operation__content--active');
+};
+
 //EVENTLISTENERS
 ctaBtns.forEach(btn => btn.addEventListener('click', handleShowModal));
 overlayEl.addEventListener('click', handleCloseModal);
@@ -95,11 +117,13 @@ btnScrollTo.addEventListener('click', handleScrollToSection1);
 
 navBarContainer.addEventListener('click', handleSmoothScrolling);
 
+operationTabsContainer.addEventListener('click', handleShowTab);
+
 //OBSERVERS
 const imgObserver = new IntersectionObserver(handleLoadImg, {
   root: null,
   threshold: 0,
-  rootMargin: '200px',
+  // rootMargin: '200px',
 });
 featuresImgs.forEach(img => imgObserver.observe(img));
 

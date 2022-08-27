@@ -26,7 +26,7 @@ h1 {
 
 .container, .section {
   max-width: 115rem;
-  margin: 7.5rem auto;
+  margin: 12.5rem auto;
   padding: 0 2.5rem; }
   @media (min-width: 768px) {
     .container, .section {
@@ -100,8 +100,17 @@ img {
 .btn--primary {
   background-color: #5ec576; }
   .btn--primary:hover {
-    background-color: #4bbb7d;
-    transform: scale(0.9); }
+    background-color: #4bbb7d; }
+
+.btn--secondary {
+  background-color: #ffcb03; }
+  .btn--secondary:hover {
+    background-color: #ffbb00; }
+
+.btn--teritary {
+  background-color: #ff585f; }
+  .btn--teritary:hover {
+    background-color: #fd424b; }
 
 .modal {
   position: fixed;
@@ -340,5 +349,38 @@ img {
     .feature__icon {
       width: 50px;
       height: 50px; } }
+
+.operations__tabs-container {
+  display: grid;
+  font-size: 2rem;
+  align-content: center;
+  width: 40%;
+  margin: 3rem auto;
+  grid-template-rows: repeat(3, minmax(0.4fr, 40px));
+  gap: 1rem; }
+  @media (min-width: 768px) {
+    .operations__tabs-container {
+      grid-template-rows: repeat(1, 1fr);
+      grid-template-columns: repeat(3, minmax(150px, 250px));
+      width: 100%;
+      justify-content: center;
+      gap: 3rem; } }
+
+.operation__tab--active {
+  transform: translateX(30px); }
+  @media (min-width: 768px) {
+    .operation__tab--active {
+      transform: translateY(-15px); } }
+
+.operations__content {
+  position: relative; }
+
+.operation__content {
+  position: absolute;
+  top: 2rem;
+  visibility: hidden; }
+
+.operation__content--active {
+  visibility: visible; }
 
 /*# sourceMappingURL=index.css.map */

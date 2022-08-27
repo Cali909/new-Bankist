@@ -63,7 +63,7 @@ h1 {
 
 .container {
   max-width: 115rem;
-  margin: 7.5rem auto;
+  margin: 12.5rem auto;
   padding: 0 2.5rem;
   @include media-min-width(map-get($break-points, tablet)) {
     margin: 25rem auto;
@@ -148,7 +148,20 @@ img {
   background-color: map-get($map: $colors, $key: primary);
   &:hover {
     background-color: map-get($map: $colors, $key: primary-darker);
-    transform: scale(0.9);
+  }
+}
+
+.btn--secondary {
+  background-color: map-get($map: $colors, $key: secondary);
+  &:hover {
+    background-color: map-get($map: $colors, $key: secondary-darker);
+  }
+}
+
+.btn--teritary {
+  background-color: map-get($map: $colors, $key: tertiary);
+  &:hover {
+    background-color: map-get($map: $colors, $key: tertiary-darker);
   }
 }
 
@@ -440,17 +453,41 @@ img {
   }
 }
 
-// .feature__content__header {
-//   font-size: 1.9rem;
-//   margin: 1rem auto;
-//   @include media-min-width(map-get($break-points, tablet)) {
-//     font-size: 2.2rem;
-//   }
-// }
+//operations
+.operations__tabs-container {
+  display: grid;
+  font-size: 2rem;
+  align-content: center;
+  width: 40%;
+  margin: 3rem auto;
+  grid-template-rows: repeat(3, minmax(0.4fr, 40px));
+  gap: 1rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(3, minmax(150px, 250px));
+    width: 100%;
+    justify-content: center;
+    gap: 3rem;
+  }
+}
 
-// .feature__content__description {
-//   font-size: 1.7rem;
-//   @include media-min-width(map-get($break-points, tablet)) {
-//     font-size: 2rem;
-//   }
-// }
+.operation__tab--active {
+  transform: translateX(30px);
+  @include media-min-width(map-get($break-points, tablet)) {
+    transform: translateY(-15px);
+  }
+}
+
+.operations__content {
+  position: relative;
+}
+
+.operation__content {
+  position: absolute;
+  top: 2rem;
+  visibility: hidden;
+}
+
+.operation__content--active {
+  visibility: visible;
+}
