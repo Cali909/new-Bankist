@@ -141,6 +141,7 @@ img {
   font-weight: 500;
   padding: 0.5rem 1.5rem;
   border-radius: 10rem;
+  outline: none;
   cursor: pointer;
   @include media-min-width(map-get($break-points, tablet)) {
     font-size: 1.6rem;
@@ -269,6 +270,7 @@ img {
 
 //navigation bar
 .nav {
+  z-index: 200;
   position: fixed;
   top: 0;
   right: 0;
@@ -480,6 +482,10 @@ img {
   }
 }
 
+.operation__tab {
+  transition: all 0.5s;
+}
+
 .operation__tab--active {
   transform: translateX(30px);
   @include media-min-width(map-get($break-points, tablet)) {
@@ -507,10 +513,51 @@ img {
 }
 
 .testimonials__content {
-  text-align: center;
-  @include media-min-width(map-get($break-points, tablet)) {
-    text-align: left;
+  position: relative;
+  overflow: hidden;
+  height: 80rem;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 80rem;
+  transition: transform 1s;
+}
+
+.testimonial {
+  width: 85%;
+  margin: 0 auto;
+  position: relative;
+  & > .section__description {
+    opacity: 0.75;
   }
+}
+
+.slider__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 27.5%;
+  z-index: 10;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  height: 5.5rem;
+  width: 5.5rem;
+  border-radius: 50%;
+  font-size: 2.75rem;
+}
+
+.slider__btn--left {
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 5%;
+  transform: translate(50%, -50%);
 }
 
 .testimonial__photo {
@@ -524,22 +571,41 @@ img {
 
 .testimonial__name {
   font-size: 1.6rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 1.75rem;
+  }
 }
 
 .testimonial__location {
   font-size: 1.5rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+    font-size: 1.6rem;
+  }
 }
 
-// .testimonials__content {
-//   position: relative;
-// }
+.dots {
+  display: none;
+  @include media-min-width(map-get($break-points, tablet)) {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  @include media-min-width(950px) {
+    top: 45%;
+  }
+}
 
-// .testimonial__content {
-//   position: absolute;
-//   top: 2rem;
-//   visibility: hidden;
-// }
+.dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #b9b9b9;
+  margin: 0.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
 
-// .testimonial__content--active {
-//   visibility: visible;
-// }
+.dot--active {
+  background-color: #888;
+}

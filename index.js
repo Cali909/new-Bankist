@@ -16,6 +16,10 @@ const operationTabsContainer = document.querySelector(
   '.operations__tabs-container'
 );
 const operationsContent = document.querySelectorAll('.operation__content');
+const slides = document.querySelectorAll('.slide');
+const sliderBtnLeft = document.querySelector('.slider__btn--left');
+const sliderBtnRight = document.querySelector('.slider__btn--right');
+const dotsContainer = document.querySelector('.dots');
 
 //FUNCTIONS
 const handleShowModal = () => {
@@ -138,5 +142,82 @@ const sectionObserver = new IntersectionObserver(handleRevealSection, {
 });
 sections.forEach(section => {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden');   //FIXME: turn me on
 });
+
+//slides
+let currentSlide = 0;
+const lastSlide = slides.length - 1;
+
+const goToSlide = slideNumber => {
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${100 * (index - slideNumber)}%)`;
+  });
+};
+
+const nextSlide = function () {
+  if (currentSlide === lastSlide) {
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+  goToSlide(currentSlide);
+  activateDot(currentSlide);
+};
+
+const prevSlide = function () {
+  if (currentSlide === 0) {
+    currentSlide = lastSlide;
+  } else {
+    currentSlide--;
+  }
+  goToSlide(currentSlide);
+  activateDot(currentSlide);
+};
+
+sliderBtnRight.addEventListener('click', nextSlide);
+sliderBtnLeft.addEventListener('click', prevSlide);
+
+document.addEventListener('keydown', function (e) {
+  e.key === 'ArrowRight' && nextSlide();
+  e.key === 'ArrowLeft' && prevSlide();
+});
+
+//dots
+const createDots = () => {
+  slides.forEach((_, index) => {
+    dotsContainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class="dot dot--active" data-slide="${index}"></div>`
+    );
+  });
+};
+
+const activateDot = slide => {
+  document
+    .querySelectorAll('.dot')
+    .forEach(dot => dot.classList.remove('dot--active'));
+
+  document
+    .querySelector(`.dot[data-slide="${slide}"]`)
+    .classList.add('dot--active');
+};
+
+const handleDotChange = e => {
+  if (e.target.classList.contains('dot')) {
+    const slideNumber = e.target.dataset.slide;
+    goToSlide(slideNumber);
+    activateDot(slideNumber);
+  }
+};
+
+dotsContainer.addEventListener('click', handleDotChange);
+
+const initializeSliderStatus = () => {
+  goToSlide(0);
+  createDots();
+  activateDot(0);
+};
+initializeSliderStatus();
+
+// setInterval(nextSlide, 15000);  //FIXME: turn me on
