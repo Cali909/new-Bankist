@@ -390,4 +390,25 @@ img {
 .operation__content--active {
   visibility: visible; }
 
+.testimonials {
+  margin-top: 40rem; }
+
+.testimonials__content {
+  text-align: center; }
+  @media (min-width: 768px) {
+    .testimonials__content {
+      text-align: left; } }
+
+.testimonial__photo {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin: 1.75rem 0 0.25rem; }
+
+.testimonial__name {
+  font-size: 1.6rem; }
+
+.testimonial__location {
+  font-size: 1.5rem; }
+
 /*# sourceMappingURL=index.css.map */

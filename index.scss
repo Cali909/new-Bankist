@@ -502,3 +502,44 @@ img {
 }
 
 //testimonials
+.testimonials {
+  margin-top: 40rem;
+}
+
+.testimonials__content {
+  text-align: center;
+  @include media-min-width(map-get($break-points, tablet)) {
+    text-align: left;
+  }
+}
+
+.testimonial__photo {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin: 1.75rem 0 0.25rem;
+  @include media-min-width(map-get($break-points, tablet)) {
+  }
+}
+
+.testimonial__name {
+  font-size: 1.6rem;
+}
+
+.testimonial__location {
+  font-size: 1.5rem;
+}
+
+// .testimonials__content {
+//   position: relative;
+// }
+
+// .testimonial__content {
+//   position: absolute;
+//   top: 2rem;
+//   visibility: hidden;
+// }
+
+// .testimonial__content--active {
+//   visibility: visible;
+// }
