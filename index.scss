@@ -1,5 +1,4 @@
-//typography and general classes
-
+//COLOR PALLETE
 $colors: (
   primary: #5ec576,
   secondary: #ffcb03,
@@ -19,15 +18,19 @@ $gradients: (
   secondary: linear-gradient(to top left, #ffb003, #ffcb03),
 );
 
+// BREAK POINTS
 $break-points: (
   tablet: 768px,
 );
+
+//MEDIA QUERIES
 @mixin media-min-width($width) {
   @media (min-width: $width) {
     @content;
   }
 }
 
+//NORMALIZE and RESET
 ::selection {
   background-color: skyblue;
 }
@@ -44,6 +47,7 @@ html {
   font-size: 62.5%;
 }
 
+// TYPOGRAPHY
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
@@ -52,6 +56,7 @@ body {
   background-color: map-get($colors, bg-body);
 }
 
+//GENERAL STYLES
 a {
   cursor: pointer;
 }
@@ -60,9 +65,22 @@ h1 {
   font-size: 4rem;
 }
 
-.section {
-  @extend .container;
-  transition: all 1.2s;
+img {
+  width: 100%;
+  transition: filter 0.5s;
+}
+
+.img--lazy {
+  zoom: 2;
+  filter: blur(15px);
+}
+
+.grid {
+  display: grid;
+  @include media-min-width(map-get($break-points, tablet)) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
 }
 
 .container {
@@ -72,6 +90,11 @@ h1 {
   @include media-min-width(map-get($break-points, tablet)) {
     margin: 25rem auto;
   }
+}
+
+.section {
+  @extend .container;
+  transition: all 1.2s;
 }
 
 .container__label {
@@ -116,25 +139,6 @@ h1 {
   transform: translateY(8rem);
 }
 
-.grid {
-  display: grid;
-  @include media-min-width(map-get($break-points, tablet)) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
-  }
-}
-
-img {
-  width: 100%;
-  transition: filter 0.5s;
-}
-
-.img--lazy {
-  // transform: scale(1.5);
-  zoom: 2;
-  filter: blur(15px);
-}
-
 .btn {
   display: inline-block;
   border: none;
@@ -171,8 +175,19 @@ img {
   }
 }
 
-//modal and overlay
+.btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
 
+//MODAL and OVERLAY
 .modal {
   position: fixed;
   top: 50%;
@@ -252,24 +267,12 @@ img {
   }
 }
 
-.btn--close-modal {
-  font-family: inherit;
-  color: inherit;
-  position: absolute;
-  top: 0.5rem;
-  right: 2rem;
-  font-size: 4rem;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
 .hidden {
   visibility: hidden;
   opacity: 0;
 }
 
-//navigation bar
+//NAVIGATION BAR
 .nav {
   z-index: 200;
   position: fixed;
@@ -359,7 +362,7 @@ img {
   }
 }
 
-//hero
+//HERO
 .hero {
   text-align: center;
   align-items: center;
@@ -405,8 +408,7 @@ img {
   }
 }
 
-//features
-
+//FEATURES
 .features {
   align-items: center;
   justify-items: center;
@@ -465,7 +467,7 @@ img {
   }
 }
 
-//operations
+//OPERATIONS
 .operations__tabs-container {
   display: grid;
   font-size: 2rem;
@@ -511,7 +513,7 @@ img {
   visibility: visible;
 }
 
-//testimonials
+//TESTIMONIALS
 .testimonials {
   margin-top: 40rem;
 }
@@ -612,7 +614,7 @@ img {
   background-color: #888;
 }
 
-//footer
+//FOOTER
 .footer {
   background-color: #37383d;
   color: #fff;
@@ -620,7 +622,7 @@ img {
   padding: 7.5rem 5rem;
   & > button {
     margin: 3.75rem auto 7.5rem;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     padding: 1.25rem 1.75rem;
     @include media-min-width(map-get($break-points, tablet)) {
       font-size: 2.25rem;
@@ -632,7 +634,7 @@ img {
   line-height: 1.8;
   font-size: 2.5rem;
   @include media-min-width(map-get($break-points, tablet)) {
-    font-size: 3.25rem;
+    font-size: 3rem;
   }
 }
 
@@ -655,7 +657,13 @@ img {
     color: map-get($map: $colors, $key: primary);
   }
   @include media-min-width(map-get($break-points, tablet)) {
-    font-size: 2 rem;
+    font-size: 2rem;
     margin: 2rem;
   }
+}
+
+.copyright {
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  color: #ccc;
 }

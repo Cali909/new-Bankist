@@ -142,7 +142,7 @@ const sectionObserver = new IntersectionObserver(handleRevealSection, {
 });
 sections.forEach(section => {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');   //FIXME: turn me on
+  section.classList.add('section--hidden');
 });
 
 //slides
@@ -220,4 +220,4 @@ const initializeSliderStatus = () => {
 };
 initializeSliderStatus();
 
-// setInterval(nextSlide, 15000);  //FIXME: turn me on
+setInterval(nextSlide, 15000);

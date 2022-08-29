@@ -24,8 +24,20 @@ a {
 h1 {
   font-size: 4rem; }
 
-.section {
-  transition: all 1.2s; }
+img {
+  width: 100%;
+  transition: filter 0.5s; }
+
+.img--lazy {
+  zoom: 2;
+  filter: blur(15px); }
+
+.grid {
+  display: grid; }
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem; } }
 
 .container, .section {
   max-width: 115rem;
@@ -34,6 +46,9 @@ h1 {
   @media (min-width: 768px) {
     .container, .section {
       margin: 25rem auto; } }
+
+.section {
+  transition: all 1.2s; }
 
 .container__label {
   color: #5ec576;
@@ -72,21 +87,6 @@ h1 {
   opacity: 0;
   transform: translateY(8rem); }
 
-.grid {
-  display: grid; }
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5rem; } }
-
-img {
-  width: 100%;
-  transition: filter 0.5s; }
-
-.img--lazy {
-  zoom: 2;
-  filter: blur(15px); }
-
 .btn {
   display: inline-block;
   border: none;
@@ -115,6 +115,17 @@ img {
   background-color: #ff585f; }
   .btn--teritary:hover {
     background-color: #fd424b; }
+
+.btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background: none; }
 
 .modal {
   position: fixed;
@@ -183,17 +194,6 @@ img {
       display: grid;
       grid-template-columns: 1fr 2fr;
       text-align: left; } }
-
-.btn--close-modal {
-  font-family: inherit;
-  color: inherit;
-  position: absolute;
-  top: 0.5rem;
-  right: 2rem;
-  font-size: 4rem;
-  cursor: pointer;
-  border: none;
-  background: none; }
 
 .hidden {
   visibility: hidden;
@@ -489,7 +489,7 @@ img {
   padding: 7.5rem 5rem; }
   .footer > button {
     margin: 3.75rem auto 7.5rem;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     padding: 1.25rem 1.75rem; }
     @media (min-width: 768px) {
       .footer > button {
@@ -500,7 +500,7 @@ img {
   font-size: 2.5rem; }
   @media (min-width: 768px) {
     .footer__header {
-      font-size: 3.25rem; } }
+      font-size: 3rem; } }
 
 .footer__links {
   display: flex;
@@ -520,7 +520,12 @@ img {
     color: #5ec576; }
   @media (min-width: 768px) {
     .footer__link {
-      font-size: 2 rem;
+      font-size: 2rem;
       margin: 2rem; } }
+
+.copyright {
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  color: #ccc; }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,12 +9,13 @@
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./index.css" />
     <title>New And Responsive Bankist</title>
-
+    <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js"></script>
   </head>
+
   <body>
+    <!-- MODAL -->
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
       <h2 class="modal__header">
@@ -30,8 +32,11 @@
         <button class="btn">Next step &rarr;</button>
       </form>
     </div>
+    <!-- OVERLAY -->
     <div class="overlay hidden"></div>
+
     <header>
+      <!-- NAVIGATION BAR -->
       <nav class="nav">
         <a href="#">
           <img
@@ -88,6 +93,7 @@
           </li>
         </ul>
       </nav>
+      <!-- HERO -->
       <div class="hero grid container">
         <div class="hero__description">
           <h1 class="hero__header">When Banking Meets Minimalist</h1>
@@ -107,13 +113,16 @@
         </div>
       </div>
     </header>
+
     <main>
+      <!-- FEATURES -->
       <section class="container section features" id="section--1">
         <h2 class="container__label">FEATURES</h2>
         <h3 class="container__header">
           Everything You Need in a Modern Bank and More.
         </h3>
         <div class="grid features">
+
           <div class="feature__image" id="feature__img1">
             <img
               src="./images/digital-lazy.jpg"
@@ -181,12 +190,13 @@
           </div>
         </div>
       </section>
-
+      <!-- OPERATIONS -->
       <section class="container section operations" id="section--2">
         <h2 class="container__label">OPERATIONS</h2>
         <h3 class="container__header">
           Everything as Simple as Possible, but no Simpler.
         </h3>
+
         <div class="operations__tabs-container">
           <button
             class="btn btn--primary operation__tab operation__tab--1 operation__tab--active"
@@ -205,6 +215,7 @@
             <span>03</span> Instant Closing
           </button>
         </div>
+
         <div class="operations__content">
           <div
             class="operation__content operation__content--1 operation__content--active"
@@ -219,6 +230,7 @@
               voluptatibus velit eaque.
             </p>
           </div>
+
           <div class="operation__content operation__content--2">
             <h5 class="section__header">
               Buy a home or make your dreams come true, with instant loans.
@@ -230,6 +242,7 @@
               tempore!
             </p>
           </div>
+          
           <div class="operation__content operation__content--3">
             <h5 class="section__header">
               No longer need your account? No problem! Close it instantly.
@@ -242,7 +255,7 @@
           </div>
         </div>
       </section>
-
+      <!-- TESTIMONIALS -->
       <section class="container section testimonials" id="section--3">
         <h2 class="container__label">NOT SURE YET?</h2>
         <h3 class="container__header">
@@ -328,6 +341,7 @@
         </div>
       </section>
     </main>
+    
     <footer class="footer">
       <h2 class="footer__header">
         The Best Day to Join Bankist was one Year ago. The Second Best is Today!
@@ -349,7 +363,13 @@
           <li class="footer__link">Contact Us</li>
         </a>
       </ul>
+      <p class="copyright">
+        &copy;Idea and Content by Jonas Schmedtman. <br>
+          Design, Implementation and
+          Responsiveness by Alireza Garshasbi.
+        </br>
+      </p>
     </footer>
-    <!-- <script src="./index.js"></script> -->
+    
   </body>
 </html>
