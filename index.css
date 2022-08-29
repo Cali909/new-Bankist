@@ -84,7 +84,7 @@ img {
   transition: filter 0.5s; }
 
 .img--lazy {
-  transform: scale(2.25);
+  zoom: 2;
   filter: blur(15px); }
 
 .btn {
@@ -390,7 +390,10 @@ img {
 .operation__content {
   position: absolute;
   top: 2rem;
-  visibility: hidden; }
+  visibility: hidden;
+  height: 20rem;
+  max-height: 30rem;
+  overflow-y: scroll; }
 
 .operation__content--active {
   visibility: visible; }
@@ -401,13 +404,14 @@ img {
 .testimonials__content {
   position: relative;
   overflow: hidden;
-  height: 80rem; }
+  height: 37.5rem;
+  overflow-y: scroll;
+  max-height: 75rem; }
 
 .slide {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 80rem;
   transition: transform 1s; }
 
 .testimonial {
@@ -463,11 +467,8 @@ img {
     .dots {
       display: flex;
       position: absolute;
-      top: 50%;
+      top: 90%;
       left: 50%; } }
-  @media (min-width: 950px) {
-    .dots {
-      top: 45%; } }
 
 .dot {
   width: 1rem;
@@ -480,5 +481,46 @@ img {
 
 .dot--active {
   background-color: #888; }
+
+.footer {
+  background-color: #37383d;
+  color: #fff;
+  text-align: center;
+  padding: 7.5rem 5rem; }
+  .footer > button {
+    margin: 3.75rem auto 7.5rem;
+    font-size: 1.75rem;
+    padding: 1.25rem 1.75rem; }
+    @media (min-width: 768px) {
+      .footer > button {
+        font-size: 2.25rem; } }
+
+.footer__header {
+  line-height: 1.8;
+  font-size: 2.5rem; }
+  @media (min-width: 768px) {
+    .footer__header {
+      font-size: 3.25rem; } }
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .footer__links {
+      flex-direction: row; } }
+
+.footer__link {
+  color: #fff;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: all 0.3s; }
+  .footer__link:hover {
+    color: #5ec576; }
+  @media (min-width: 768px) {
+    .footer__link {
+      font-size: 2 rem;
+      margin: 2rem; } }
 
 /*# sourceMappingURL=index.css.map */
