@@ -450,7 +450,8 @@ img {
   margin: 1.75rem 0 0.25rem; }
 
 .testimonial__name {
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  font-weight: 500; }
   @media (min-width: 768px) {
     .testimonial__name {
       font-size: 1.75rem; } }

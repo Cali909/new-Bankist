@@ -578,6 +578,7 @@ img {
 
 .testimonial__name {
   font-size: 1.6rem;
+  font-weight: 500;
   @include media-min-width(map-get($break-points, tablet)) {
     font-size: 1.75rem;
   }
